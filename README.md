@@ -11,6 +11,10 @@ Premium Next.js marketing site for DTC AV Solutions, designed around a futuristi
 - Resend
 - Vercel Analytics + Speed Insights
 
+## Project Memory
+
+For a codebase-oriented summary of the site structure, source-of-truth files, contact flow, and operational notes, see [PROJECT_MEMORY.md](./PROJECT_MEMORY.md).
+
 ## Local Development
 
 1. Install dependencies:
