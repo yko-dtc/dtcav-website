@@ -96,7 +96,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             </span>
             <p className="eyebrow">Challenge</p>
           </div>
-          <h2 className="mt-6 text-3xl font-semibold text-white">A broad workplace brief with little room for inconsistency.</h2>
+          <h2 className="mt-6 text-3xl font-semibold text-white">Complex room mix. Zero tolerance for friction.</h2>
           <p className="mt-5 text-base leading-8 text-slate-300">{project.challenge}</p>
         </FadeScale>
         <FadeScale
@@ -109,7 +109,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             </span>
             <p className="eyebrow">Solution</p>
           </div>
-          <h2 className="mt-6 text-3xl font-semibold text-white">One AV standard carried across the entire office experience.</h2>
+          <h2 className="mt-6 text-3xl font-semibold text-white">One AV standard across the entire office.</h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-cyan-50/85">{project.solution}</p>
         </FadeScale>
       </section>
@@ -117,7 +117,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <section className="mt-16 grid gap-6 xl:grid-cols-[0.82fr_1.18fr]">
         <FadeScale className="rounded-[2.25rem] border border-white/10 bg-slate-900/60 p-7 lg:p-8">
           <p className="eyebrow">Scope</p>
-          <h2 className="mt-4 text-2xl font-semibold text-white">What the engagement covered.</h2>
+          <h2 className="mt-4 text-2xl font-semibold text-white">Scope at a glance.</h2>
           <div className="mt-6 space-y-4">
             {project.scope.map((item, index) => (
               <div key={item} className="flex gap-4 border-t border-white/10 pt-4 first:border-t-0 first:pt-0">
@@ -131,10 +131,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <FadeScale className="rounded-[2.25rem] border border-white/10 bg-white/[0.03] p-7 lg:p-8" delay={0.08}>
           <div className="max-w-3xl">
             <p className="eyebrow">Room Program</p>
-            <h2 className="mt-4 text-2xl font-semibold text-white">A layered mix of environments, not a one-room story.</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-400">
-              The program needed to support leadership collaboration, routine team meetings, smaller hybrid sessions, and shared workplace spaces without breaking the overall user experience.
-            </p>
+            <h2 className="mt-4 text-2xl font-semibold text-white">Built for every mode of work.</h2>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {project.roomProgram.map((item, index) => (
@@ -150,10 +147,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <section className="mt-16 grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
         <FadeScale className="rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-7 lg:p-8">
           <p className="eyebrow">Systems</p>
-          <h2 className="mt-4 text-2xl font-semibold text-white">The technical backbone behind the experience.</h2>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-400">
-            Rather than relying on a one-size-fits-all stack, the system design blended room control, conferencing, presentation, routing, and workplace audio into one coordinated platform.
-          </p>
+          <h2 className="mt-4 text-2xl font-semibold text-white">Core systems.</h2>
           <div className="mt-8 flex flex-wrap gap-3">
             {project.technologies.map((item) => (
               <div
@@ -168,7 +162,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
         <FadeScale className="rounded-[2.25rem] border border-white/10 bg-slate-950/70 p-7 lg:p-8" delay={0.08}>
           <p className="eyebrow">Outcomes</p>
-          <h2 className="mt-4 text-2xl font-semibold text-white">What the finished environment delivered.</h2>
+          <h2 className="mt-4 text-2xl font-semibold text-white">What it delivered.</h2>
           <div className="mt-6 space-y-4">
             {project.outcomes.map((item) => (
               <div key={item} className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4">
@@ -183,10 +177,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="eyebrow">Project Signals</p>
-            <h2 className="section-title mt-4 max-w-3xl">A reusable metrics band for future case studies.</h2>
-          </Reveal>
-          <Reveal className="max-w-xl text-sm leading-7 text-slate-300" delay={0.08}>
-            These short proof points can be replaced with room counts, rollout scale, adoption gains, or other client-approved metrics whenever those details are available.
+            <h2 className="section-title mt-4 max-w-3xl">Key project signals.</h2>
           </Reveal>
         </div>
 
@@ -205,10 +196,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="eyebrow">Gallery</p>
-            <h2 className="section-title mt-4 max-w-3xl">Visual proof for the environment story.</h2>
-          </Reveal>
-          <Reveal className="max-w-xl text-sm leading-7 text-slate-300" delay={0.08}>
-            Each project can carry a small gallery from <code>public/media/projects/project-slug</code> or reuse existing approved imagery until dedicated assets are available.
+            <h2 className="section-title mt-4 max-w-3xl">Project gallery.</h2>
           </Reveal>
         </div>
         <FadeScale delay={0.08}>

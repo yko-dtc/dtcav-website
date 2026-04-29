@@ -58,13 +58,13 @@ export const projects: readonly Project[] = [
     completionLabel: "3-floor flagship office AV deployment",
     eyebrow: "Executive Collaboration + Workplace AV",
     summary:
-      "A flagship Manhattan workplace AV deployment spanning executive collaboration spaces, day-to-day meeting rooms, open-area environments, and workplace audio across three floors.",
+      "A three-floor Manhattan AV deployment unifying executive rooms, meeting spaces, open areas, and workplace audio.",
     overview:
-      "DTC AV delivered a multi-floor workplace technology environment for Aquarian Holdings in Manhattan, creating a unified experience across leadership spaces, collaboration rooms, open areas, and supporting workplace environments.",
+      "DTC AV delivered a unified workplace technology experience across Aquarian Holdings' flagship Manhattan office.",
     challenge:
-      "The project required one AV strategy to support a broad mix of collaboration spaces, executive environments, and open workplace areas across a dense three-floor office. The experience needed to feel polished in high-visibility rooms while remaining consistent and easy to operate throughout the broader floorplate.",
+      "Support a wide range of room types across three floors without sacrificing consistency or ease of use.",
     solution:
-      "The deployment centered on a unified control standard, native meeting workflows, flexible presentation options, coordinated room scheduling, open-area display and audio support, and workplace sound solutions tuned for both collaborative and executive environments.",
+      "Deploy one coordinated AV standard across collaboration, presentation, scheduling, open-area display, and workplace audio.",
     scope: [
       "Flagship NYC office AV deployment across three floors",
       "Executive boardrooms and conference environments",
@@ -88,10 +88,10 @@ export const projects: readonly Project[] = [
       "Distributed background music and sound masking",
     ],
     outcomes: [
-      "A consistent control and meeting experience across high-profile rooms and high-volume daily-use spaces",
-      "Hybrid-ready meeting environments with native Teams, BYOD, and wireless presentation workflows",
-      "Coordinated open-area display and audio zones that extended the AV standard beyond enclosed meeting rooms",
-      "A workplace platform tuned, commissioned, and handed off for confident day-to-day use",
+      "One consistent user experience across the office",
+      "Hybrid-ready rooms with flexible presentation workflows",
+      "Open-area display and audio aligned with the meeting-room standard",
+      "Commissioned and delivered for confident daily use",
     ],
     metrics: [
       {
