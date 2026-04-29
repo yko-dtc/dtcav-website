@@ -1,0 +1,124 @@
+import { projectAssets } from "@/content/assets";
+
+export type ProjectMetric = {
+  label: string;
+  value: string;
+  detail: string;
+};
+
+export type ProjectVirtualTour = {
+  title: string;
+  description: string;
+  embedUrl?: string;
+  fallbackHref?: string;
+  provider?: string;
+};
+
+export type Project = {
+  slug: string;
+  title: string;
+  client: string;
+  sector: string;
+  location: string;
+  completionLabel: string;
+  eyebrow: string;
+  summary: string;
+  overview: string;
+  challenge: string;
+  solution: string;
+  scope: readonly string[];
+  roomProgram: readonly string[];
+  technologies: readonly string[];
+  outcomes: readonly string[];
+  metrics: readonly ProjectMetric[];
+  coverImage: string;
+  gallery: readonly string[];
+  featured?: boolean;
+  virtualTour?: ProjectVirtualTour;
+};
+
+export const projectsPageContent = {
+  eyebrow: "Client Projects",
+  title: "Client projects that show the DTC AV standard in real environments.",
+  intro:
+    "A focused portfolio of workplace technology environments, with dedicated project pages for deeper case-study storytelling, photography, and optional 360 virtual tours.",
+  ctaTitle: "Have a space that needs this level of integration?",
+  ctaBody:
+    "Share the room types, constraints, and timeline, and the DTC AV team can help define the right next step.",
+} as const;
+
+export const projects: readonly Project[] = [
+  {
+    slug: "aquarian-holdings",
+    title: "Aquarian Holdings Flagship NYC Office",
+    client: "Aquarian Holdings",
+    sector: "Financial",
+    location: "Manhattan, New York City",
+    completionLabel: "3-floor flagship office AV deployment",
+    eyebrow: "Executive Collaboration + Workplace AV",
+    summary:
+      "A flagship Manhattan workplace AV deployment spanning executive collaboration spaces, day-to-day meeting rooms, open-area environments, and workplace audio across three floors.",
+    overview:
+      "DTC AV delivered a multi-floor workplace technology environment for Aquarian Holdings in Manhattan, creating a unified experience across leadership spaces, collaboration rooms, open areas, and supporting workplace environments.",
+    challenge:
+      "The project required one AV strategy to support a broad mix of collaboration spaces, executive environments, and open workplace areas across a dense three-floor office. The experience needed to feel polished in high-visibility rooms while remaining consistent and easy to operate throughout the broader floorplate.",
+    solution:
+      "The deployment centered on a unified control standard, native meeting workflows, flexible presentation options, coordinated room scheduling, open-area display and audio support, and workplace sound solutions tuned for both collaborative and executive environments.",
+    scope: [
+      "Flagship NYC office AV deployment across three floors",
+      "Executive boardrooms and conference environments",
+      "Standardized meeting-room workflows across varied room types",
+      "Open-area display control and distributed workplace audio",
+      "Sound masking for open offices, trading environments, and executive areas",
+      "System commissioning, testing, and client training",
+    ],
+    roomProgram: [
+      "Executive and large-format meeting spaces designed for leadership collaboration and client-facing use",
+      "Conference rooms and flexible collaboration spaces standardized around a common user experience",
+      "Huddle rooms and smaller meeting environments built for consistent day-to-day hybrid use",
+      "Executive offices, phone rooms, and specialty spaces supported by tailored presentation and control workflows",
+      "Open areas, lounges, and workplace support zones integrated into the broader AV ecosystem",
+    ],
+    technologies: [
+      "Custom Crestron control and room scheduling",
+      "Native Teams room workflows with flexible presentation options",
+      "Intelligent camera, microphone, and speaker systems",
+      "Open-area display routing and workplace audio control",
+      "Distributed background music and sound masking",
+    ],
+    outcomes: [
+      "A consistent control and meeting experience across high-profile rooms and high-volume daily-use spaces",
+      "Hybrid-ready meeting environments with native Teams, BYOD, and wireless presentation workflows",
+      "Coordinated open-area display and audio zones that extended the AV standard beyond enclosed meeting rooms",
+      "A workplace platform tuned, commissioned, and handed off for confident day-to-day use",
+    ],
+    metrics: [
+      {
+        label: "Floors",
+        value: "3",
+        detail: "The deployment spanned Aquarian Holdings' flagship Manhattan office across three full floors.",
+      },
+      {
+        label: "Room mix",
+        value: "Multi-format",
+        detail: "The office combined executive, conference, huddle, open-area, and workplace-support environments under one AV standard.",
+      },
+      {
+        label: "Experience",
+        value: "Unified",
+        detail: "Control, presentation, scheduling, and workplace audio were aligned into one coordinated user experience.",
+      },
+    ],
+    coverImage: projectAssets["aquarian-holdings"].cover,
+    gallery: projectAssets["aquarian-holdings"].gallery,
+    featured: true,
+  },
+] as const;
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}
+
+export function getFeaturedProjects() {
+  return projects.filter((project) => project.featured);
+}

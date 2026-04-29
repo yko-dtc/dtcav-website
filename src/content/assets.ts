@@ -17,6 +17,22 @@ export const serviceAssets = {
   boardrooms: "/media/services/boardroom.jpg",
 } as const;
 
+export const projectAssets = {
+  "aquarian-holdings": {
+    cover: "/media/projects/aquarian-holdings/boardroom-web.jpg",
+    gallery: [
+      "/media/projects/aquarian-holdings/boardroom-web.jpg",
+      "/media/projects/aquarian-holdings/u-shaped-room-web.jpg",
+      "/media/projects/aquarian-holdings/crestron-control-ipad-web.jpg",
+      "/media/projects/aquarian-holdings/open-area-rack-web.jpg",
+      "/media/projects/aquarian-holdings/logi-huddle-room-web.jpg",
+      "/media/projects/aquarian-holdings/room-scheduler-web.jpg",
+      "/media/projects/aquarian-holdings/teams-touch-panel-web.jpg",
+      "/media/projects/aquarian-holdings/rack-dtcav-logo-web.jpg",
+    ],
+  },
+} as const;
+
 export const teamAssets = {
   "ryan-king": "/media/team/ryan-king.jpg",
   "dave-rivera": "/media/team/dave-rivera.jpg",

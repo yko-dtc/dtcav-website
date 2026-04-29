@@ -1,7 +1,9 @@
 import { HeroStack } from "@/components/hero-stack";
 import { ManufacturerBand } from "@/components/manufacturer-band";
+import { ProjectCard } from "@/components/project-card";
 import { FadeScale, Reveal } from "@/components/reveal";
 import { ServiceCard } from "@/components/service-card";
+import { getFeaturedProjects } from "@/content/projects";
 import {
   aboutContent,
   heroContent,
@@ -16,6 +18,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
+  const featuredProjects = getFeaturedProjects();
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -132,6 +136,31 @@ export default function HomePage() {
             <ServiceCard key={service.slug} service={service} index={index} />
           ))}
         </div>
+      </section>
+
+      <section className="page-shell py-20">
+        <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <Reveal>
+            <p className="eyebrow">Client Projects</p>
+            <h2 className="section-title mt-4 max-w-3xl">Selected client projects.</h2>
+          </Reveal>
+          <Reveal className="max-w-xl text-sm leading-7 text-slate-300" delay={0.08}>
+            Explore real DTC AV environments and the systems behind them.
+          </Reveal>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
+          ))}
+        </div>
+        <Reveal className="mt-8">
+          <Link
+            href="/projects"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-slate-200 transition hover:border-white/25 hover:text-white"
+          >
+            Browse all projects
+          </Link>
+        </Reveal>
       </section>
 
       <section className="page-shell py-12">

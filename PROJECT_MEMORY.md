@@ -40,6 +40,10 @@ The site is primarily a brochure/lead-generation experience. The only interactiv
   - Brand positioning, team, manufacturer ecosystem, and CTA
 - `/contact`
   - Lead form and reassurance/expectation copy
+- `/projects`
+  - Dedicated client-projects landing page with featured case studies and project grid
+- `/projects/[slug]`
+  - Static detail page for each project defined in `src/content/projects.ts`
 - `/solutions/[slug]`
   - Static detail page for each service defined in `src/content/site.ts`
 - `/api/contact`
@@ -66,6 +70,17 @@ If a future request is "change the wording," "add a new service," "swap a team m
 
 `src/content/assets.ts` is the asset path map. If copy/content is correct but an image is wrong, start there.
 
+`src/content/projects.ts` is the source of truth for the client-projects system.
+
+It currently owns:
+
+- Projects page hero and CTA copy
+- The project roster and slugs
+- Project-specific summary, challenge, solution, outcomes, and metric content
+- Optional 360 virtual tour metadata
+
+If a future request is "add a project page," "change a project story," or "publish a virtual tour embed," check `src/content/projects.ts` first.
+
 ## Components Worth Knowing
 
 - `src/components/site-header.tsx`
@@ -80,10 +95,14 @@ If a future request is "change the wording," "add a new service," "swap a team m
   - Shared Framer Motion reveal primitives used across pages
 - `src/components/service-card.tsx`
   - Home page solution cards
+- `src/components/project-card.tsx`
+  - Reusable project card used on the home page and `/projects`
 - `src/components/manufacturer-band.tsx`
   - Infinite scrolling manufacturer marquee
 - `src/components/contact-form.tsx`
   - Client-side form, fetches `/api/contact`, and shows success/error state inline
+- `src/components/virtual-tour-embed.tsx`
+  - Optional 360 virtual tour block for project pages; renders an iframe when `embedUrl` is supplied
 
 ## Contact Flow
 
@@ -150,6 +169,8 @@ Important asset folders in `public/media`:
   - Three hero collage images
 - `services`
   - Service imagery used by solutions
+- `projects`
+  - Recommended destination for future project-specific imagery, even though the initial scaffolding reuses approved media
 - `team`
   - Team headshots
 - `manufacturers`
@@ -168,6 +189,7 @@ If those query strings change, `next.config.ts` may also need to change.
 - There is no database.
 - There is no auth.
 - There is no dedicated solutions index page; the header routes "Solutions" to the first service detail page.
+- There is now a dedicated projects index page plus per-project dynamic pages.
 - The repo currently has no automated tests beyond TypeScript checking via `npm run typecheck`.
 - Generated/runtime directories like `.next` and `.cache` are already ignored and should not be treated as source files.
 
@@ -176,6 +198,7 @@ If those query strings change, `next.config.ts` may also need to change.
 - Change company-level messaging: `src/content/site.ts`
 - Change nav/footer links or CTA labels: `src/content/site.ts`
 - Add or edit a service: `src/content/site.ts` and, if needed, `src/content/assets.ts` plus `public/media/services`
+- Add or edit a project: `src/content/projects.ts` and, if needed, `src/content/assets.ts` plus `public/media/projects`
 - Change team members: `src/content/site.ts` and `public/media/team`
 - Change manufacturer logos: `src/content/assets.ts`, `public/media/manufacturers`, and possibly `next.config.ts`
 - Change contact form fields/options/validation: `src/lib/contact-schema.ts` and `src/components/contact-form.tsx`
