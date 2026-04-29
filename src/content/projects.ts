@@ -40,9 +40,9 @@ export type Project = {
 
 export const projectsPageContent = {
   eyebrow: "Client Projects",
-  title: "Client projects that show the DTC AV standard in real environments.",
+  title: "Client projects in real environments.",
   intro:
-    "A focused portfolio of workplace technology environments, with dedicated project pages for deeper case-study storytelling, photography, and optional 360 virtual tours.",
+    "A focused portfolio of real workplace technology environments.",
   ctaTitle: "Have a space that needs this level of integration?",
   ctaBody:
     "Share the room types, constraints, and timeline, and the DTC AV team can help define the right next step.",
@@ -55,7 +55,7 @@ export const projects: readonly Project[] = [
     client: "Aquarian Holdings",
     sector: "Financial",
     location: "Manhattan, New York City",
-    completionLabel: "3-floor flagship office AV deployment",
+    completionLabel: "Three-floor flagship office AV deployment",
     eyebrow: "Executive Collaboration + Workplace AV",
     summary:
       "A three-floor Manhattan AV deployment unifying executive rooms, meeting spaces, open areas, and workplace audio.",
