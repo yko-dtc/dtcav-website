@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="page-shell flex min-h-[70vh] flex-col items-center justify-center py-24 text-center">
+    <div className="page-shell flex min-h-[70vh] flex-col items-center justify-center py-16 text-center sm:py-20 lg:py-24">
       <p className="eyebrow">404</p>
-      <h1 className="mt-5 text-5xl font-semibold text-white sm:text-6xl">This route is not part of the current DTC AV site map.</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+      <h1 className="page-title mt-5">This route is not part of the current DTC AV site map.</h1>
+      <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
         The redesigned experience is organized around Home, About, Solutions, and Contact.
       </p>
       <Link

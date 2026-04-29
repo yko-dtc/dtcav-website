@@ -37,19 +37,19 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="page-shell relative overflow-hidden py-16 lg:py-24">
+      <section className="page-shell page-hero relative overflow-hidden">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-8">
             <Reveal className="eyebrow">{heroContent.eyebrow}</Reveal>
-            <Reveal as="h1" className="max-w-3xl text-5xl font-semibold leading-[1.03] text-white sm:text-6xl lg:text-7xl">
+            <Reveal as="h1" className="hero-title max-w-3xl">
               {heroContent.title}
             </Reveal>
-            <Reveal className="max-w-2xl text-lg leading-8 text-slate-300" delay={0.08}>
+            <Reveal className="max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8" delay={0.08}>
               {heroContent.intro}
             </Reveal>
             <Reveal className="grid gap-3 sm:grid-cols-3" delay={0.15}>
               {heroContent.highlights.map((highlight) => (
-                <div key={highlight} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-slate-200">
+                <div key={highlight} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-slate-200">
                   {highlight}
                 </div>
               ))}
@@ -68,7 +68,7 @@ export default function HomePage() {
                 Meet the team
               </Link>
             </Reveal>
-            <Reveal className="max-w-2xl rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 text-sm leading-7 text-slate-300" delay={0.3}>
+            <Reveal className="panel-padding-sm max-w-2xl rounded-[2rem] border border-white/10 bg-white/[0.03] text-sm leading-7 text-slate-300" delay={0.3}>
               <span className="eyebrow block pb-3">Current brand baseline</span>
               {heroContent.secondaryTitle} {aboutContent.intro}
             </Reveal>
@@ -77,15 +77,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="page-shell py-8 lg:py-14">
+      <section className="page-shell page-section-sm">
         <div className="grid gap-4 md:grid-cols-3">
           {proofStats.map((stat, index) => (
             <FadeScale
               key={stat.label}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6"
+              className="panel-padding-sm rounded-[2rem] border border-white/10 bg-white/[0.03]"
               delay={index * 0.08}
             >
-              <div className="text-5xl font-semibold text-white">{stat.value}</div>
+              <div className="text-4xl font-semibold text-white sm:text-5xl">{stat.value}</div>
               <div className="mt-3 text-sm uppercase tracking-[0.24em] text-cyan-200">{stat.label}</div>
               <p className="mt-4 text-sm leading-7 text-slate-400">{stat.detail}</p>
             </FadeScale>
@@ -93,7 +93,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="page-shell grid gap-10 py-20 lg:grid-cols-[0.75fr_1.25fr]">
+      <section className="page-shell page-section grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
         <Reveal className="space-y-5">
           <p className="eyebrow">How we deliver</p>
           <h2 className="section-title">From workplace intent to commissioned performance.</h2>
@@ -106,13 +106,13 @@ export default function HomePage() {
           {processSteps.map((step, index) => (
             <Reveal
               key={step.title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6"
+              className="panel-padding-sm rounded-[2rem] border border-white/10 bg-white/[0.03]"
               delay={index * 0.08}
             >
               <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                 <div>
                   <p className="text-sm uppercase tracking-[0.24em] text-cyan-200">0{index + 1}</p>
-                  <h3 className="mt-2 text-2xl font-semibold text-white">{step.title}</h3>
+                  <h3 className="mt-2 text-xl font-semibold text-white sm:text-2xl">{step.title}</h3>
                 </div>
                 <p className="max-w-xl text-sm leading-7 text-slate-300">{step.description}</p>
               </div>
@@ -121,7 +121,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="page-shell py-20">
+      <section className="page-shell page-section">
         <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="eyebrow">Solutions</p>
@@ -138,7 +138,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="page-shell py-20">
+      <section className="page-shell page-section">
         <div className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="eyebrow">Client Projects</p>
@@ -163,8 +163,8 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      <section className="page-shell py-12">
-        <div className="grid gap-8 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-6 lg:grid-cols-[1.08fr_0.92fr] lg:p-8">
+      <section className="page-shell page-section-sm">
+        <div className="panel-padding grid gap-8 overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] lg:grid-cols-[1.08fr_0.92fr]">
           <FadeScale className="relative aspect-[1.12] overflow-hidden rounded-[2rem]">
             <Image
               src="/media/services/boardroom.jpg"
@@ -185,15 +185,15 @@ export default function HomePage() {
               that matches the stakes of the conversations inside them.
             </Reveal>
             <Reveal className="grid gap-3 text-sm text-slate-300" delay={0.15}>
-              <div className="rounded-2xl border border-white/10 px-4 py-4">Meeting rooms, conference rooms, and executive boardrooms</div>
-              <div className="rounded-2xl border border-white/10 px-4 py-4">Scheduling and platform interoperability with intuitive controls</div>
-              <div className="rounded-2xl border border-white/10 px-4 py-4">A finished system experience aligned with architectural quality</div>
+              <div className="rounded-2xl border border-white/10 px-4 py-3.5">Meeting rooms, conference rooms, and executive boardrooms</div>
+              <div className="rounded-2xl border border-white/10 px-4 py-3.5">Scheduling and platform interoperability with intuitive controls</div>
+              <div className="rounded-2xl border border-white/10 px-4 py-3.5">A finished system experience aligned with architectural quality</div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="page-shell py-20">
+      <section className="page-shell page-section">
         <Reveal className="mb-8">
           <p className="eyebrow">Manufacturer alignment</p>
           <h2 className="section-title mt-4 max-w-2xl">Built with leading AV ecosystem partners already represented on the brand today.</h2>
@@ -201,7 +201,7 @@ export default function HomePage() {
         <ManufacturerBand items={manufacturerPartners} />
       </section>
 
-      <section className="page-shell py-20">
+      <section className="page-shell page-section">
         <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="eyebrow">Team</p>
@@ -226,15 +226,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="page-shell py-20">
-        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(14,165,233,0.18),rgba(15,23,42,0.94)_55%)] px-6 py-10 lg:px-10">
+      <section className="page-shell page-section">
+        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(14,165,233,0.18),rgba(15,23,42,0.94)_55%)] px-5 py-8 sm:px-6 sm:py-10 lg:px-10">
           <p className="eyebrow">Start the conversation</p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+              <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
                 Bring your next workplace technology project into a sharper, more seamless future.
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-cyan-50/80">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-cyan-50/80 sm:text-base sm:leading-8">
                 Whether you are planning a flagship boardroom, a town hall environment, or a broader AV transformation, the next step starts with scope.
               </p>
             </div>

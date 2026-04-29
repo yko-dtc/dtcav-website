@@ -12,9 +12,9 @@ export function ManufacturerBand({ items }: { items: Manufacturer[] }) {
   const doubledItems = [...items, ...items];
 
   return (
-    <FadeScale className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] py-6">
+    <FadeScale className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] py-5 sm:py-6">
       <motion.div
-        className="flex min-w-max items-center gap-10 px-8"
+        className="flex min-w-max items-center gap-8 px-6 sm:gap-10 sm:px-8"
         animate={
           reduceMotion
             ? undefined
@@ -35,7 +35,7 @@ export function ManufacturerBand({ items }: { items: Manufacturer[] }) {
         {doubledItems.map((item, index) => (
           <div
             key={`${item.name}-${index}`}
-            className="relative h-12 w-28 shrink-0 opacity-80 transition hover:opacity-100"
+            className="relative h-10 w-24 shrink-0 opacity-80 transition hover:opacity-100 sm:h-12 sm:w-28"
           >
             <Image src={item.image} alt={item.name} fill className="object-contain" sizes="112px" />
           </div>

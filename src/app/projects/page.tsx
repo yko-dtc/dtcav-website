@@ -14,17 +14,17 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <section className="page-shell py-16 lg:py-20">
+      <section className="page-shell page-hero">
         <Reveal className="max-w-4xl">
           <p className="eyebrow">{projectsPageContent.eyebrow}</p>
-          <h1 className="mt-5 text-5xl font-semibold leading-[1.04] text-white sm:text-6xl">
+          <h1 className="page-title mt-5">
             {projectsPageContent.title}
           </h1>
-          <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300">{projectsPageContent.intro}</p>
+          <p className="mt-6 max-w-3xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">{projectsPageContent.intro}</p>
         </Reveal>
       </section>
 
-      <section className="page-shell pb-20">
+      <section className="page-shell pb-14 sm:pb-16 lg:pb-20">
         <div className="max-w-5xl">
           <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project, index) => (
@@ -34,15 +34,15 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="page-shell py-20">
-        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(14,165,233,0.18),rgba(15,23,42,0.94)_55%)] px-6 py-10 lg:px-10">
+      <section className="page-shell page-section">
+        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(14,165,233,0.18),rgba(15,23,42,0.94)_55%)] px-5 py-8 sm:px-6 sm:py-10 lg:px-10">
           <p className="eyebrow">Start the conversation</p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+              <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
                 {projectsPageContent.ctaTitle}
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-cyan-50/80">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-cyan-50/80 sm:text-base sm:leading-8">
                 {projectsPageContent.ctaBody}
               </p>
             </div>

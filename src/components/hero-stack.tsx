@@ -14,7 +14,7 @@ export function HeroStack() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <div className="relative mx-auto aspect-[0.88] w-full max-w-[34rem]">
+    <div className="relative mx-auto aspect-[0.88] w-full max-w-[30rem] sm:max-w-[34rem]">
       <div className="absolute inset-0 rounded-[2.5rem] bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.22),transparent_44%),radial-gradient(circle_at_bottom,rgba(59,130,246,0.2),transparent_40%)] blur-3xl" />
       {cards.map((card, index) => (
         <motion.div
@@ -43,7 +43,7 @@ export function HeroStack() {
         </motion.div>
       ))}
       <motion.div
-        className="absolute bottom-8 right-4 rounded-full border border-cyan-300/30 bg-slate-950/80 px-4 py-3 text-[11px] uppercase tracking-[0.26em] text-cyan-100 shadow-[0_18px_60px_rgba(14,165,233,0.2)]"
+        className="absolute bottom-6 right-3 rounded-full border border-cyan-300/30 bg-slate-950/80 px-3.5 py-2.5 text-[10px] uppercase tracking-[0.22em] text-cyan-100 shadow-[0_18px_60px_rgba(14,165,233,0.2)] sm:bottom-8 sm:right-4 sm:px-4 sm:py-3 sm:text-[11px] sm:tracking-[0.26em]"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.85, delay: 0.4 }}

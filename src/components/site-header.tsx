@@ -15,14 +15,14 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 sm:py-4 lg:px-10">
         <Link
           href="/"
           className="flex items-center gap-3"
           aria-label={`${siteConfig.name} home`}
           onClick={() => setIsOpen(false)}
         >
-          <div className="relative h-9 w-24">
+          <div className="relative h-12 w-[8.4rem] md:h-9 md:w-24">
             <Image
               src={brandAssets.logo}
               alt={siteConfig.shortName}
@@ -69,7 +69,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white md:hidden sm:h-11 sm:w-11"
           aria-expanded={isOpen}
           aria-label="Toggle navigation"
           onClick={() => setIsOpen((value) => !value)}
@@ -90,7 +90,7 @@ export function SiteHeader() {
         }}
         className="overflow-hidden border-t border-white/10 bg-slate-950/95 md:hidden"
       >
-        <div className="space-y-4 px-6 py-5">
+        <div className="space-y-4 px-4 py-5 sm:px-6">
           {navigation.map((item) => (
             <Link
               key={item.href}

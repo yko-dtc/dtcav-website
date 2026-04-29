@@ -7,11 +7,11 @@ type Service = (typeof services)[number];
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <Reveal
-      className="group rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+      className="group rounded-[2rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm sm:p-6"
       delay={index * 0.08}
     >
-      <div className="mb-5 text-xs uppercase tracking-[0.3em] text-cyan-200">{service.eyebrow}</div>
-      <h3 className="text-2xl font-semibold text-white">{service.shortTitle}</h3>
+      <div className="mb-5 text-xs uppercase tracking-[0.26em] text-cyan-200 sm:tracking-[0.3em]">{service.eyebrow}</div>
+      <h3 className="text-xl font-semibold text-white sm:text-2xl">{service.shortTitle}</h3>
       <p className="mt-4 text-sm leading-7 text-slate-300">{service.summary}</p>
       <ul className="mt-6 space-y-2 text-sm text-slate-400">
         {service.capabilities.slice(0, 2).map((item) => (

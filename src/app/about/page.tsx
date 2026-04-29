@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="page-shell py-16 lg:py-24">
+    <div className="page-shell page-hero">
       <Reveal className="max-w-4xl">
         <p className="eyebrow">About DTC AV Solutions</p>
-        <h1 className="mt-5 text-5xl font-semibold leading-[1.04] text-white sm:text-6xl">
+        <h1 className="page-title mt-5">
           A more refined standard for workplace technology environments.
         </h1>
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+        <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
           {aboutContent.positioning} {siteConfig.motto}.
         </p>
       </Reveal>
@@ -29,9 +29,9 @@ export default function AboutPage() {
             <Image src="/media/hero/nico-0170.jpg" alt="DTC AV workspace showcase" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
           </div>
         </FadeScale>
-        <div className="space-y-5 rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-8">
+        <div className="panel-padding space-y-5 rounded-[2.5rem] border border-white/10 bg-white/[0.03]">
           <p className="eyebrow">Positioning</p>
-          <p className="text-base leading-8 text-slate-300">{aboutContent.intro}</p>
+          <p className="text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">{aboutContent.intro}</p>
           <div className="space-y-3 pt-4">
             {aboutContent.pillars.map((pillar, index) => (
               <Reveal key={pillar} className="rounded-2xl border border-white/10 px-4 py-4 text-sm leading-7 text-slate-300" delay={index * 0.08}>
@@ -62,7 +62,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-20 rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-8">
+      <section className="panel-padding mt-20 rounded-[2.5rem] border border-white/10 bg-white/[0.03]">
         <Reveal>
           <p className="eyebrow">Manufacturer ecosystem</p>
           <h2 className="section-title mt-4 max-w-2xl">Trusted brands already woven into the current DTC AV story.</h2>
@@ -81,12 +81,12 @@ export default function AboutPage() {
       </section>
 
       <section className="mt-20">
-        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,145,178,0.18),rgba(15,23,42,0.96)_52%)] px-8 py-10">
+        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,145,178,0.18),rgba(15,23,42,0.96)_52%)] px-5 py-8 sm:px-6 sm:py-10 lg:px-8">
           <p className="eyebrow">Next step</p>
           <div className="mt-4 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <h2 className="text-4xl font-semibold leading-tight text-white">Tell us about the environment you need to build.</h2>
-              <p className="mt-4 text-base leading-8 text-cyan-50/80">
+              <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">Tell us about the environment you need to build.</h2>
+              <p className="mt-4 text-sm leading-7 text-cyan-50/80 sm:text-base sm:leading-8">
                 We built the new experience around clarity and confidence. The inquiry flow does the same.
               </p>
             </div>

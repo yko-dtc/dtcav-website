@@ -38,18 +38,18 @@ export default async function SolutionDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="page-shell py-16 lg:py-24">
+    <div className="page-shell page-hero">
       <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="space-y-7">
           <Reveal>
             <p className="eyebrow">{service.eyebrow}</p>
-            <h1 className="mt-5 text-5xl font-semibold leading-[1.06] text-white sm:text-6xl">{service.title}</h1>
-            <p className="mt-6 text-lg leading-8 text-slate-300">{service.summary}</p>
+            <h1 className="page-title mt-5 leading-[1.06]">{service.title}</h1>
+            <p className="mt-6 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">{service.summary}</p>
           </Reveal>
-          <Reveal className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 text-base leading-8 text-slate-300" delay={0.08}>
+          <Reveal className="panel-padding-sm rounded-[2rem] border border-white/10 bg-white/[0.03] text-sm leading-7 text-slate-300 sm:text-base sm:leading-8" delay={0.08}>
             {service.description}
           </Reveal>
-          <Reveal className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 text-sm leading-7 text-slate-300" delay={0.15}>
+          <Reveal className="panel-padding-sm rounded-[2rem] border border-white/10 bg-white/[0.03] text-sm leading-7 text-slate-300" delay={0.15}>
             {service.detail}
           </Reveal>
         </div>
@@ -62,7 +62,7 @@ export default async function SolutionDetailPage({ params }: Props) {
       </div>
 
       <section className="mt-16 grid gap-6 lg:grid-cols-2">
-        <FadeScale className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6">
+        <FadeScale className="panel-padding-sm rounded-[2rem] border border-white/10 bg-white/[0.03]">
           <p className="eyebrow">Capabilities</p>
           <ul className="mt-5 space-y-4">
             {service.capabilities.map((item) => (
@@ -73,7 +73,7 @@ export default async function SolutionDetailPage({ params }: Props) {
             ))}
           </ul>
         </FadeScale>
-        <FadeScale className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6" delay={0.08}>
+        <FadeScale className="panel-padding-sm rounded-[2rem] border border-white/10 bg-white/[0.03]" delay={0.08}>
           <p className="eyebrow">Outcomes</p>
           <ul className="mt-5 space-y-4">
             {service.outcomes.map((item) => (
@@ -86,23 +86,23 @@ export default async function SolutionDetailPage({ params }: Props) {
         </FadeScale>
       </section>
 
-      <section className="mt-16 rounded-[2.5rem] border border-white/10 bg-white/[0.03] p-8">
+      <section className="panel-padding mt-16 rounded-[2.5rem] border border-white/10 bg-white/[0.03]">
         <Reveal>
           <p className="eyebrow">Integrated delivery</p>
           <h2 className="section-title mt-4 max-w-3xl">A space succeeds when the technical performance and the user experience are equally intentional.</h2>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
             DTC AV Solutions approaches every environment with the same standard: premium design language, practical controls, and deployment shaped around the realities of collaboration, training, presentation, and leadership communication.
           </p>
         </Reveal>
       </section>
 
       <section className="mt-16">
-        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,145,178,0.18),rgba(15,23,42,0.96)_55%)] px-8 py-10">
+        <Reveal className="rounded-[2.5rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,145,178,0.18),rgba(15,23,42,0.96)_55%)] px-5 py-8 sm:px-6 sm:py-10 lg:px-8">
           <p className="eyebrow">Discuss this solution</p>
           <div className="mt-5 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <h2 className="text-4xl font-semibold leading-tight text-white">Ready to talk about your {service.shortTitle.toLowerCase()} environment?</h2>
-              <p className="mt-4 text-base leading-8 text-cyan-50/80">
+              <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">Ready to talk about your {service.shortTitle.toLowerCase()} environment?</h2>
+              <p className="mt-4 text-sm leading-7 text-cyan-50/80 sm:text-base sm:leading-8">
                 Share your project scope and the DTC AV team will follow up with the next step.
               </p>
             </div>

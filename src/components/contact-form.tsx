@@ -61,7 +61,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-6 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_120px_rgba(14,165,233,0.12)] backdrop-blur-xl md:p-8"
+      className="space-y-5 rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_24px_120px_rgba(14,165,233,0.12)] backdrop-blur-xl sm:space-y-6 sm:p-6 md:p-8"
     >
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Name" error={errors.name?.message}>
@@ -101,7 +101,7 @@ export function ContactForm() {
       </Field>
 
       <Field label="Project Scope" error={errors.message?.message}>
-        <textarea {...register("message")} rows={7} className={`${inputClassName} resize-none`} />
+        <textarea {...register("message")} rows={6} className={`${inputClassName} resize-none`} />
       </Field>
 
       <input
@@ -119,7 +119,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="inline-flex items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/15 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100 transition hover:bg-cyan-300/25 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/15 px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100 transition hover:bg-cyan-300/25 disabled:cursor-not-allowed disabled:opacity-60 sm:px-6 sm:tracking-[0.24em]"
         >
           {isPending ? "Submitting..." : "Submit Inquiry"}
         </button>
@@ -149,4 +149,4 @@ function Field({
 }
 
 const inputClassName =
-  "w-full rounded-[1.2rem] border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50";
+  "w-full rounded-[1.2rem] border border-white/10 bg-slate-950/70 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/50 sm:py-3";

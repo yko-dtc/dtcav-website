@@ -27,16 +27,14 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             sizes="(max-width: 1024px) 100vw, 33vw"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.08),rgba(2,6,23,0.78)_72%,rgba(2,6,23,0.95))]" />
-          <div className="absolute inset-x-0 bottom-0 p-6">
+          <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
             <p className="eyebrow">{project.eyebrow}</p>
-            <h3 className="mt-4 text-xl font-semibold text-white sm:text-2xl">{project.title}</h3>
-            <p className="mt-3 text-sm text-cyan-50/80">
-              {project.client} · {project.location}
-            </p>
+            <h3 className="mt-3 text-xl font-semibold text-white sm:mt-4 sm:text-2xl">{project.title}</h3>
+            <p className="mt-3 text-sm text-cyan-50/80">{`${project.client} / ${project.location}`}</p>
           </div>
         </div>
 
-        <div className="space-y-5 p-6">
+        <div className="space-y-5 p-5 sm:p-6">
           <p className="text-sm leading-7 text-slate-300">{project.summary}</p>
 
           <div className="flex flex-wrap gap-2">
@@ -50,7 +48,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             ))}
           </div>
 
-          <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-cyan-100 transition group-hover:text-white">
+          <div className="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-100 transition group-hover:text-white sm:tracking-[0.24em]">
             View project
             <span aria-hidden="true">+</span>
           </div>
