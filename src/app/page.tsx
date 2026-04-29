@@ -208,17 +208,17 @@ export default function HomePage() {
             <h2 className="section-title mt-4 max-w-2xl">Leadership and delivery expertise behind the installation.</h2>
           </Reveal>
           <Reveal className="max-w-xl text-sm leading-7 text-slate-300" delay={0.08}>
-            The current site’s four team members are preserved, but presented with a more editorial and confidence-building treatment.
+            Meet the DTC AV team presented with a more editorial, confidence-building treatment.
           </Reveal>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {teamMembers.map((member, index) => (
             <FadeScale key={member.name} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]" delay={index * 0.08}>
               <div className="relative aspect-[0.86]">
-                <Image src={member.image} alt={member.name} fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                <Image src={member.image} alt={member.name} fill className="object-cover" sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw" />
               </div>
-              <div className="space-y-2 p-5">
-                <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+              <div className="space-y-2 p-4">
+                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
                 <p className="text-sm leading-6 text-slate-400">{member.title}</p>
               </div>
             </FadeScale>

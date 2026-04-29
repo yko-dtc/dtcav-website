@@ -117,8 +117,8 @@ export const projects: readonly Project[] = [
       title: "Aquarian Holdings 360 Virtual Tour",
       description:
         "Explore the Aquarian Holdings flagship office through an immersive 360 walkthrough that complements the project photography and case-study overview.",
-      embedUrl: "https://realsee.ai/6yDDW8YB",
-      openInNewTabHref: "https://realsee.ai/6yDDW8YB",
+      embedUrl: "https://realsee.ai/z7RRA3zk",
+      openInNewTabHref: "https://realsee.ai/z7RRA3zk",
       provider: "RealSee",
     },
   },

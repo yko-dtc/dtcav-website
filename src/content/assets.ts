@@ -38,6 +38,8 @@ export const teamAssets = {
   "dave-rivera": "/media/team/dave-rivera.jpg",
   "rob-catalano": "/media/team/rob-catalano.jpg",
   "andrea-zarreva": "/media/team/andrea-zarreva.jpg",
+  "harold-deen": "/media/team/harold-deen.jpg",
+  "yoohan-ko": "/media/team/yoohan-ko-2026-04-29.jpg",
 } as const;
 
 export const manufacturerAssets = {

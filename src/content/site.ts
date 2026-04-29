@@ -209,6 +209,16 @@ export const teamMembers = [
     title: "AV Design Engineer",
     image: teamAssets["andrea-zarreva"],
   },
+  {
+    name: "Harold Deen",
+    title: "Field AV Engineer",
+    image: teamAssets["harold-deen"],
+  },
+  {
+    name: "Yoohan Ko",
+    title: "Field AV Engineer",
+    image: teamAssets["yoohan-ko"],
+  },
 ] as const;
 
 export const aboutContent = {
