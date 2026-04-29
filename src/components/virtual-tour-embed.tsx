@@ -12,6 +12,16 @@ export function VirtualTourEmbed({ tour }: VirtualTourEmbedProps) {
         <p className="eyebrow">360 Virtual Tour</p>
         <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">{tour.title}</h2>
         <p className="mt-4 text-base leading-8 text-slate-300">{tour.description}</p>
+        {tour.openInNewTabHref ? (
+          <a
+            href={tour.openInNewTabHref}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center rounded-full border border-cyan-300/30 bg-cyan-300/15 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-50 shadow-[0_0_0_1px_rgba(103,232,249,0.08)] transition hover:bg-cyan-300/25 hover:text-white"
+          >
+            Open In New Tab
+          </a>
+        ) : null}
       </div>
 
       {tour.embedUrl ? (
