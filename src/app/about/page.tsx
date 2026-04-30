@@ -18,7 +18,7 @@ export default function AboutPage() {
           <p className="eyebrow">Team</p>
           <h2 className="section-title mt-4 max-w-3xl">A delivery team that keeps design intent and user experience connected through execution.</h2>
         </Reveal>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4">
           {teamMembers.map((member, index) => (
             <FadeScale key={member.name} className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]" delay={index * 0.08}>
               <div className="relative aspect-[0.86]">
