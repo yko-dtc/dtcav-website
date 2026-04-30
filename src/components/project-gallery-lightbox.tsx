@@ -1,16 +1,47 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import type { TouchEvent as ReactTouchEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ProjectGalleryLightboxProps = {
   images: readonly string[];
   title: string;
 };
 
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? "14%" : "-14%",
+    opacity: 0,
+  }),
+  center: {
+    x: "0%",
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? "-14%" : "14%",
+    opacity: 0,
+  }),
+};
+
 export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightboxProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [navigationDirection, setNavigationDirection] = useState(1);
+  const touchStartXRef = useRef<number | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+
+  const showPrevious = () => {
+    setNavigationDirection(-1);
+    setSelectedIndex((current) =>
+      current === null ? images.length - 1 : (current - 1 + images.length) % images.length,
+    );
+  };
+
+  const showNext = () => {
+    setNavigationDirection(1);
+    setSelectedIndex((current) => (current === null ? 0 : (current + 1) % images.length));
+  };
 
   useEffect(() => {
     if (selectedIndex === null) {
@@ -26,13 +57,11 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
       }
 
       if (event.key === "ArrowRight") {
-        setSelectedIndex((current) => (current === null ? 0 : (current + 1) % images.length));
+        showNext();
       }
 
       if (event.key === "ArrowLeft") {
-        setSelectedIndex((current) =>
-          current === null ? images.length - 1 : (current - 1 + images.length) % images.length,
-        );
+        showPrevious();
       }
     };
 
@@ -42,14 +71,36 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [images.length, selectedIndex]);
+  }, [selectedIndex, images.length]);
 
-  const showPrevious = () => {
-    setSelectedIndex((current) => (current === null ? images.length - 1 : (current - 1 + images.length) % images.length));
+  const handleTouchStart = (event: ReactTouchEvent<HTMLDivElement>) => {
+    const touch = event.changedTouches[0];
+    touchStartXRef.current = touch.clientX;
+    touchStartYRef.current = touch.clientY;
   };
 
-  const showNext = () => {
-    setSelectedIndex((current) => (current === null ? 0 : (current + 1) % images.length));
+  const handleTouchEnd = (event: ReactTouchEvent<HTMLDivElement>) => {
+    if (touchStartXRef.current === null || touchStartYRef.current === null || images.length < 2) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartXRef.current;
+    const deltaY = touch.clientY - touchStartYRef.current;
+
+    touchStartXRef.current = null;
+    touchStartYRef.current = null;
+
+    if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+      return;
+    }
+
+    if (deltaX < 0) {
+      showNext();
+      return;
+    }
+
+    showPrevious();
   };
 
   return (
@@ -60,7 +111,10 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
             key={image}
             type="button"
             className="group relative overflow-hidden rounded-[2rem] border border-white/10 text-left"
-            onClick={() => setSelectedIndex(index)}
+            onClick={() => {
+              setNavigationDirection(1);
+              setSelectedIndex(index);
+            }}
             aria-label={`Open ${title} gallery image ${index + 1}`}
           >
             <div className="relative aspect-[1.05]">
@@ -96,7 +150,7 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
               onClick={() => setSelectedIndex(null)}
               aria-label="Close image viewer"
             >
-              ×
+              X
             </button>
 
             {images.length > 1 ? (
@@ -110,7 +164,7 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
                   }}
                   aria-label="Previous image"
                 >
-                  ‹
+                  {"<"}
                 </button>
                 <button
                   type="button"
@@ -121,28 +175,43 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
                   }}
                   aria-label="Next image"
                 >
-                  ›
+                  {">"}
                 </button>
               </>
             ) : null}
 
             <motion.div
-              className="relative w-full max-w-7xl"
+              className="relative w-full max-w-7xl touch-pan-y"
               onClick={(event) => event.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
               initial={{ opacity: 0, scale: 0.96, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.97, y: 10 }}
               transition={{ duration: 0.24, ease: [0.21, 1, 0.35, 1] }}
             >
               <div className="relative aspect-[16/10] max-h-[94vh] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950">
-                <Image
-                  src={images[selectedIndex]}
-                  alt={`${title} gallery image ${selectedIndex + 1}`}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) calc(100vw - 24px), (max-width: 1024px) calc(100vw - 40px), (max-width: 1536px) calc(100vw - 96px), 1280px"
-                  priority
-                />
+                <AnimatePresence initial={false} custom={navigationDirection} mode="wait">
+                  <motion.div
+                    key={`${selectedIndex}-${images[selectedIndex]}`}
+                    className="absolute inset-0"
+                    custom={navigationDirection}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <Image
+                      src={images[selectedIndex]}
+                      alt={`${title} gallery image ${selectedIndex + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) calc(100vw - 24px), (max-width: 1024px) calc(100vw - 40px), (max-width: 1536px) calc(100vw - 96px), 1280px"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
               <div className="mt-4 flex items-center justify-between px-1 text-sm text-slate-300">
                 <span>{title}</span>
