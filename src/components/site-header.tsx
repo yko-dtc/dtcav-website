@@ -22,7 +22,7 @@ export function SiteHeader() {
           aria-label={`${siteConfig.name} home`}
           onClick={() => setIsOpen(false)}
         >
-          <div className="relative h-12 w-[8.4rem] md:h-9 md:w-24">
+          <div className="relative h-12 w-[8.4rem] md:h-[2.925rem] md:w-[7.8rem]">
             <Image
               src={brandAssets.logo}
               alt={siteConfig.shortName}
