@@ -195,18 +195,18 @@ export const teamMembers = [
     image: teamAssets["ryan-king"],
   },
   {
-    name: "Dave Rivera",
-    title: "Lead, AV Testing & Commissioning",
-    image: teamAssets["dave-rivera"],
-  },
-  {
     name: "Rob Catalano",
     title: "AV Project Manager",
     image: teamAssets["rob-catalano"],
   },
   {
-    name: "Andrea Zarreva",
-    title: "AV Design Engineer",
+    name: "Dave Rivera",
+    title: "Senior AV Design Engineer",
+    image: teamAssets["dave-rivera"],
+  },
+  {
+    name: "Andrea Zavareei",
+    title: "Senior AV Design Engineer",
     image: teamAssets["andrea-zarreva"],
   },
   {

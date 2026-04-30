@@ -1,5 +1,5 @@
 import { FadeScale, Reveal } from "@/components/reveal";
-import { manufacturerPartners, siteConfig, teamMembers, aboutContent } from "@/content/site";
+import { manufacturerPartners, teamMembers } from "@/content/site";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,36 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="page-shell page-hero">
-      <Reveal className="max-w-4xl">
-        <p className="eyebrow">About DTC AV Solutions</p>
-        <h1 className="page-title mt-5">
-          A more refined standard for workplace technology environments.
-        </h1>
-        <p className="mt-6 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-          {aboutContent.positioning} {siteConfig.motto}.
-        </p>
-      </Reveal>
-
-      <section className="mt-16 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <FadeScale className="overflow-hidden rounded-[2.5rem] border border-white/10">
-          <div className="relative aspect-[1.08]">
-            <Image src="/media/hero/nico-0170.jpg" alt="DTC AV workspace showcase" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
-          </div>
-        </FadeScale>
-        <div className="panel-padding space-y-5 rounded-[2.5rem] border border-white/10 bg-white/[0.03]">
-          <p className="eyebrow">Positioning</p>
-          <p className="text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">{aboutContent.intro}</p>
-          <div className="space-y-3 pt-4">
-            {aboutContent.pillars.map((pillar, index) => (
-              <Reveal key={pillar} className="rounded-2xl border border-white/10 px-4 py-4 text-sm leading-7 text-slate-300" delay={index * 0.08}>
-                {pillar}
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-20">
+      <section>
         <Reveal>
           <p className="eyebrow">Team</p>
           <h2 className="section-title mt-4 max-w-3xl">A delivery team that keeps design intent and user experience connected through execution.</h2>
