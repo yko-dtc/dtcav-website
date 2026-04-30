@@ -10,18 +10,24 @@ type ProjectGalleryLightboxProps = {
   title: string;
 };
 
+const lightboxSizes =
+  "(max-width: 640px) calc(100vw - 24px), (max-width: 1024px) calc(100vw - 40px), (max-width: 1536px) calc(100vw - 96px), 1280px";
+
 const slideVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? "14%" : "-14%",
+    x: direction > 0 ? "18%" : "-18%",
     opacity: 0,
+    scale: 0.985,
   }),
   center: {
     x: "0%",
     opacity: 1,
+    scale: 1,
   },
   exit: (direction: number) => ({
-    x: direction > 0 ? "-14%" : "14%",
+    x: direction > 0 ? "-18%" : "18%",
     opacity: 0,
+    scale: 0.985,
   }),
 };
 
@@ -102,6 +108,10 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
 
     showPrevious();
   };
+
+  const previousIndex =
+    selectedIndex === null ? null : (selectedIndex - 1 + images.length) % images.length;
+  const nextIndex = selectedIndex === null ? null : (selectedIndex + 1) % images.length;
 
   return (
     <>
@@ -191,7 +201,7 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
               transition={{ duration: 0.24, ease: [0.21, 1, 0.35, 1] }}
             >
               <div className="relative aspect-[16/10] max-h-[94vh] overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950">
-                <AnimatePresence initial={false} custom={navigationDirection} mode="wait">
+                <AnimatePresence initial={false} custom={navigationDirection}>
                   <motion.div
                     key={`${selectedIndex}-${images[selectedIndex]}`}
                     className="absolute inset-0"
@@ -200,19 +210,41 @@ export function ProjectGalleryLightbox({ images, title }: ProjectGalleryLightbox
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <Image
                       src={images[selectedIndex]}
                       alt={`${title} gallery image ${selectedIndex + 1}`}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 640px) calc(100vw - 24px), (max-width: 1024px) calc(100vw - 40px), (max-width: 1536px) calc(100vw - 96px), 1280px"
+                      sizes={lightboxSizes}
                       priority
                     />
                   </motion.div>
                 </AnimatePresence>
               </div>
+              {previousIndex !== null && nextIndex !== null && images.length > 1 ? (
+                <div className="pointer-events-none absolute -left-[9999px] top-0 h-px w-px overflow-hidden opacity-0" aria-hidden="true">
+                  <div className="relative h-px w-px">
+                    <Image
+                      src={images[previousIndex]}
+                      alt=""
+                      fill
+                      className="object-contain"
+                      sizes={lightboxSizes}
+                      loading="eager"
+                    />
+                    <Image
+                      src={images[nextIndex]}
+                      alt=""
+                      fill
+                      className="object-contain"
+                      sizes={lightboxSizes}
+                      loading="eager"
+                    />
+                  </div>
+                </div>
+              ) : null}
               <div className="mt-4 flex items-center justify-between px-1 text-sm text-slate-300">
                 <span>{title}</span>
                 <span>
