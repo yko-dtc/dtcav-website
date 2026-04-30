@@ -10,6 +10,7 @@ export type ProjectVirtualTour = {
   title: string;
   description: string;
   embedUrl?: string;
+  embedScale?: number;
   openInNewTabHref?: string;
   fallbackHref?: string;
   provider?: string;
@@ -118,6 +119,7 @@ export const projects: readonly Project[] = [
       description:
         "Explore the Aquarian Holdings flagship office through an immersive 360 walkthrough that complements the project photography and case-study overview.",
       embedUrl: "https://realsee.ai/z7RRA3zk",
+      embedScale: 0.6,
       openInNewTabHref: "https://realsee.ai/z7RRA3zk",
       provider: "RealSee",
     },

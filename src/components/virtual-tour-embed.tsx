@@ -6,6 +6,8 @@ type VirtualTourEmbedProps = {
 };
 
 export function VirtualTourEmbed({ tour }: VirtualTourEmbedProps) {
+  const embedScale = tour.embedScale ?? 1;
+
   return (
     <section className="panel-padding rounded-[2.5rem] border border-white/10 bg-white/[0.03]">
       <div className="max-w-3xl">
@@ -26,11 +28,17 @@ export function VirtualTourEmbed({ tour }: VirtualTourEmbedProps) {
 
       {tour.embedUrl ? (
         <div className="mt-8 overflow-hidden rounded-[2rem] border border-white/10">
-          <div className="aspect-[16/10] min-h-[320px]">
+          <div className="relative aspect-video min-h-[200px] sm:aspect-[16/10] sm:min-h-[320px]">
             <iframe
               src={tour.embedUrl}
               title={tour.title}
-              className="h-full w-full"
+              className="absolute left-0 top-0 border-0"
+              style={{
+                width: `${100 / embedScale}%`,
+                height: `${100 / embedScale}%`,
+                transform: `scale(${embedScale})`,
+                transformOrigin: "top left",
+              }}
               loading="lazy"
               allowFullScreen
               referrerPolicy="strict-origin-when-cross-origin"
