@@ -5,11 +5,9 @@ import { FadeScale, Reveal } from "@/components/reveal";
 import { ServiceCard } from "@/components/service-card";
 import { getFeaturedProjects } from "@/content/projects";
 import {
-  aboutContent,
   heroContent,
   manufacturerPartners,
   processSteps,
-  proofStats,
   services,
   siteConfig,
   teamMembers,
@@ -68,28 +66,8 @@ export default function HomePage() {
                 Meet the team
               </Link>
             </Reveal>
-            <Reveal className="panel-padding-sm max-w-2xl rounded-[2rem] border border-white/10 bg-white/[0.03] text-sm leading-7 text-slate-300" delay={0.3}>
-              <span className="eyebrow block pb-3">Current brand baseline</span>
-              {heroContent.secondaryTitle} {aboutContent.intro}
-            </Reveal>
           </div>
           <HeroStack />
-        </div>
-      </section>
-
-      <section className="page-shell page-section-sm">
-        <div className="grid gap-4 md:grid-cols-3">
-          {proofStats.map((stat, index) => (
-            <FadeScale
-              key={stat.label}
-              className="panel-padding-sm rounded-[2rem] border border-white/10 bg-white/[0.03]"
-              delay={index * 0.08}
-            >
-              <div className="text-4xl font-semibold text-white sm:text-5xl">{stat.value}</div>
-              <div className="mt-3 text-sm uppercase tracking-[0.24em] text-cyan-200">{stat.label}</div>
-              <p className="mt-4 text-sm leading-7 text-slate-400">{stat.detail}</p>
-            </FadeScale>
-          ))}
         </div>
       </section>
 
